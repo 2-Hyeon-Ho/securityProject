@@ -1,6 +1,6 @@
-package com.nhnacademy.springjpa.controller;
+package com.nhnacademy.springjpa.controller.birthDeath;
 
-import com.nhnacademy.springjpa.domain.DeathDto;
+import com.nhnacademy.springjpa.domain.RestDeathDto;
 import com.nhnacademy.springjpa.entity.BirthDeathReportResident;
 import com.nhnacademy.springjpa.exception.ValidationFailedException;
 import com.nhnacademy.springjpa.service.death.DeathDeleteService;
@@ -26,7 +26,7 @@ public class DeathRestController {
 
     @PostMapping
     public BirthDeathReportResident registerDeath(@PathVariable("serialNumber") int reportResidentNumber,
-                                                  @Valid @RequestBody DeathDto death,
+                                                  @Valid @RequestBody RestDeathDto death,
                                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);
@@ -38,7 +38,7 @@ public class DeathRestController {
     @PutMapping("/{targetSerialNumber}")
     public BirthDeathReportResident modifyDeath(@PathVariable("serialNumber") int reportResidentNumber,
                                                 @PathVariable("targetSerialNumber") int targetNumber,
-                                                @Valid @RequestBody DeathDto death,
+                                                @Valid @RequestBody RestDeathDto death,
                                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);

@@ -1,0 +1,21 @@
+###세대 전입 주소 등록
+POST localhost:8080/household/2/movement
+Content-Type: application/json
+
+{
+  "householdSerialNumber": 2,
+  "houseMovementReportDate": "2022-12-04",
+  "houseMovementAddress": "전라남도 여수시 강남 3길 40-1",
+  "lastAddressYn": "Y"
+}
+
+###세대 전입 주소 수정
+PUT localhost:8080/household/2/movement/2025-01-01
+Content-Type: application/json
+
+{
+  "houseMovementAddress": "서울특별시 강남"
+}
+
+###세대 전입 주소 삭제
+DELETE localhost:8080/household/2/movement/2025-01-01

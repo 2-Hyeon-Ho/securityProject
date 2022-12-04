@@ -1,6 +1,6 @@
-package com.nhnacademy.springjpa.controller;
+package com.nhnacademy.springjpa.controller.familyRelation;
 
-import com.nhnacademy.springjpa.domain.FamilyRelationshipDto;
+import com.nhnacademy.springjpa.domain.RestFamilyRelationshipDto;
 import com.nhnacademy.springjpa.entity.FamilyRelationship;
 import com.nhnacademy.springjpa.exception.ValidationFailedException;
 import com.nhnacademy.springjpa.service.familyRelation.FamilyRelationDeleteService;
@@ -26,7 +26,7 @@ public class FamilyRelationRestController {
 
     @PostMapping
     public FamilyRelationship registerRelationship(@PathVariable("serialNumber") int baseNumber,
-                                                   @Valid @RequestBody FamilyRelationshipDto familyRelationship,
+                                                   @Valid @RequestBody RestFamilyRelationshipDto familyRelationship,
                                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);
@@ -38,7 +38,7 @@ public class FamilyRelationRestController {
     @PutMapping("/{familySerialNumber}")
     public FamilyRelationship modifyRelationship(@PathVariable("serialNumber") int baseNumber,
                                                  @PathVariable("familySerialNumber") int targetNumber,
-                                                 @Valid @RequestBody FamilyRelationshipDto familyRelationship,
+                                                 @Valid @RequestBody RestFamilyRelationshipDto familyRelationship,
                                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);

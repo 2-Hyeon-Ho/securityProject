@@ -1,2 +1,7 @@
-package com.nhnacademy.springjpa.exception;public class DeathReportNotFoundException {
+package com.nhnacademy.springjpa.exception;
+
+public class DeathReportNotFoundException extends RuntimeException {
+    public DeathReportNotFoundException() {
+        super();
+    }
 }

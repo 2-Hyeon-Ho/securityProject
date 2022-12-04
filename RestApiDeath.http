@@ -1,0 +1,27 @@
+###사망신고서 등록
+POST localhost:8080/residents/4/death
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 8,
+  "birthDeathTypeCode": "사망",
+  "birthDeathReportDate": "2022-12-04",
+  "deathReportQualificationsCode": "비동거친족",
+  "emailAddress": "nhn@academy.com",
+  "phoneNumber": "010-4321-1234"
+}
+
+###사망신고서 수정
+PUT localhost:8080/residents/4/death/8
+Content-Type: application/json
+
+{
+  "birthDeathTypeCode": "사망",
+  "birthDeathReportDate": "2023-12-04",
+  "deathReportQualificationsCode": "동거자",
+  "emailAddress": "nhn@dooray.com",
+  "phoneNumber": "010-5678-1234"
+}
+
+###사망신고서 삭제
+DELETE localhost:8080/residents/4/death/8

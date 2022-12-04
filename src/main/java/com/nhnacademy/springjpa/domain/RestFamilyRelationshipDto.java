@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FamilyRelationshipDto {
+public class RestFamilyRelationshipDto {
     private Integer familyResidentRegistrationNumber;
 
     @NotBlank

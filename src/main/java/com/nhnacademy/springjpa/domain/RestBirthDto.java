@@ -8,12 +8,9 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
-public class BirthDto {
+public class RestBirthDto {
     private Integer residentSerialNumber;
 
     @NotBlank

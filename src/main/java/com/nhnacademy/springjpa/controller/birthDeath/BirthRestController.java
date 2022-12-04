@@ -1,7 +1,6 @@
-package com.nhnacademy.springjpa.controller;
+package com.nhnacademy.springjpa.controller.birthDeath;
 
-import com.nhnacademy.springjpa.domain.BirthDto;
-import com.nhnacademy.springjpa.domain.FamilyRelationshipDto;
+import com.nhnacademy.springjpa.domain.RestBirthDto;
 import com.nhnacademy.springjpa.entity.BirthDeathReportResident;
 import com.nhnacademy.springjpa.exception.ValidationFailedException;
 import com.nhnacademy.springjpa.service.birth.BirthDeleteService;
@@ -27,7 +26,7 @@ public class BirthRestController {
 
     @PostMapping
     public BirthDeathReportResident registerBirth(@PathVariable("serialNumber") int reportResidentNumber,
-                                                  @Valid @RequestBody BirthDto birth,
+                                                  @Valid @RequestBody RestBirthDto birth,
                                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);
@@ -39,7 +38,7 @@ public class BirthRestController {
     @PutMapping("/{targetSerialNumber}")
     public BirthDeathReportResident modifyBirth(@PathVariable("serialNumber") int reportResidentNumber,
                                                 @PathVariable("targetSerialNumber") int targetNumber,
-                                                @Valid @RequestBody BirthDto birth,
+                                                @Valid @RequestBody RestBirthDto birth,
                                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);

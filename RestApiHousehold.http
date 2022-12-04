@@ -1,0 +1,27 @@
+###세대 등록
+POST localhost:8080/household
+Content-Type: application/json
+
+{
+  "householdSerialNumber": 2,
+  "householdResidentSerialNumber": 8,
+  "householdCompositionDate": "2022-12-04",
+  "householdCompositionReasonCode":"세대분리",
+  "currentHouseMovementAddress": "광주광역시 동구 동명로 98번길"
+}
+
+###세대 수정
+POST localhost:8080/household/2
+Content-Type: application/json
+
+{
+  "householdSerialNumber": 2,
+  "householdResidentSerialNumber": 8,
+  "householdCompositionDate": "2023-12-04",
+  "householdCompositionReasonCode":"세대분리",
+  "currentHouseMovementAddress": "광주광역시 지산동 410-1"
+}
+
+###세대 삭제
+DELETE localhost:8080/household/2
+

@@ -1,2 +1,4 @@
-package com.nhnacademy.springjpa.controller.householdMovementAddress;public class HOuseholdMovementAddress {
+package com.nhnacademy.springjpa.controller.householdMovementAddress;
+
+public class HouseholdMovementAddress {
 }

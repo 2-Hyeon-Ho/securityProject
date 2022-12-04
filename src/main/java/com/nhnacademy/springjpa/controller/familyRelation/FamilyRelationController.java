@@ -1,4 +1,4 @@
-package com.nhnacademy.springjpa.controller;
+package com.nhnacademy.springjpa.controller.familyRelation;
 
 import com.nhnacademy.springjpa.domain.ResidentDto;
 import com.nhnacademy.springjpa.entity.Resident;

@@ -1,0 +1,27 @@
+###출생신고서 등록
+POST localhost:8080/residents/4/birth
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 8,
+  "birthDeathTypeCode": "출생",
+  "birthDeathReportDate": "2022-12-04",
+  "birthReportQualificationsCode": "부",
+  "emailAddress": "nhn@academy.com",
+  "phoneNumber": "010-4321-1234"
+}
+
+###출생신고서 수정
+PUT localhost:8080/residents/4/birth/8
+Content-Type: application/json
+
+{
+  "birthDeathTypeCode": "출생",
+  "birthDeathReportDate": "2023-12-04",
+  "birthReportQualificationsCode": "동거친족",
+  "emailAddress": "nhn@dooray.com",
+  "phoneNumber": "010-5678-1234"
+}
+
+###출생신고서 삭제
+DELETE localhost:8080/residents/4/birth/8

@@ -1,2 +1,4 @@
-package com.nhnacademy.springjpa.repository;public interface RepositoryBase {
+package com.nhnacademy.springjpa.repository;
+
+public interface RepositoryBase {
 }

@@ -1,10 +1,7 @@
 package com.nhnacademy.springjpa.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.nhnacademy.springjpa.entity.FamilyRelationship;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
@@ -12,7 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentRequest {
+public class RestResidentDto {
     private Integer residentId;
 
     @NotBlank

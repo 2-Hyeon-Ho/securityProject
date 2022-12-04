@@ -1,6 +1,6 @@
-package com.nhnacademy.springjpa.controller;
+package com.nhnacademy.springjpa.controller.resident;
 
-import com.nhnacademy.springjpa.domain.ResidentRequest;
+import com.nhnacademy.springjpa.domain.RestResidentDto;
 import com.nhnacademy.springjpa.entity.Resident;
 import com.nhnacademy.springjpa.exception.ValidationFailedException;
 import com.nhnacademy.springjpa.service.resident.ResidentModifyService;
@@ -22,7 +22,7 @@ public class ResidentRestController {
     }
 
     @PostMapping
-    public Resident registerResident(@Valid @RequestBody ResidentRequest resident,
+    public Resident registerResident(@Valid @RequestBody RestResidentDto resident,
                                      BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);
@@ -33,7 +33,7 @@ public class ResidentRestController {
 
     @PutMapping("/{residentId}")
     public Resident modifyResident(@PathVariable("residentId") Integer residentId,
-                                   @Valid @RequestBody ResidentRequest resident,
+                                   @Valid @RequestBody RestResidentDto resident,
                                    BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);

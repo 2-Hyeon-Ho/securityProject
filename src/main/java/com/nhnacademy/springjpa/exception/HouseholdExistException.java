@@ -1,2 +1,7 @@
-package com.nhnacademy.springjpa.exception;public class HouseholdExistException {
+package com.nhnacademy.springjpa.exception;
+
+public class HouseholdExistException extends RuntimeException {
+    public HouseholdExistException() {
+        super();
+    }
 }

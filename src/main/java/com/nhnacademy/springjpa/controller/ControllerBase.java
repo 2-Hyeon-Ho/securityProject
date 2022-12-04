@@ -1,4 +1,4 @@
-package com.nhnacademy.springjpa.config.Controller;
+package com.nhnacademy.springjpa.controller;
 
 public interface ControllerBase {
 }

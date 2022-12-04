@@ -1,0 +1,19 @@
+###가족관계 등록
+POST localhost:8080/residents/4/relationship
+Content-Type: application/json
+
+{
+  "familyResidentRegistrationNumber":8,
+  "familyRelationshipCode":"자녀"
+}
+
+###가족관계 수정
+PUT localhost:8080/residents/4/relationship/8
+Content-Type: application/json
+
+{
+  "familyRelationshipCode":"부"
+}
+
+###가족관계 삭제
+DELETE localhost:8080/residents/4/relationship/8

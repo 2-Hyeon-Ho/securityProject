@@ -1,8 +1,8 @@
 package com.nhnacademy.springjpa.service.death;
 
-import com.nhnacademy.springjpa.domain.BirthDto;
+import com.nhnacademy.springjpa.domain.RestDeathDto;
 import com.nhnacademy.springjpa.entity.BirthDeathReportResident;
-import com.nhnacademy.springjpa.exception.BirthReportNotFoundException;
+import com.nhnacademy.springjpa.exception.DeathReportNotFoundException;
 import com.nhnacademy.springjpa.repository.birthDeath.BirthDeathRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,24 +11,24 @@ import java.util.Objects;
 
 @Service
 @Transactional
-public class BirthModifyService {
+public class DeathModifyService {
     private final BirthDeathRepository birthDeathRepository;
 
-    public BirthModifyService(BirthDeathRepository birthDeathRepository) {
+    public DeathModifyService(BirthDeathRepository birthDeathRepository) {
         this.birthDeathRepository = birthDeathRepository;
     }
 
-    public BirthDeathReportResident modifyBirth(int reportResidentNumber, int targetNumber, BirthDto birth) {
-        BirthDeathReportResident birthReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumberAndPk_ReportResidentSerialNumber(birth.getBirthDeathTypeCode(), targetNumber, reportResidentNumber);
-        if(Objects.isNull(birthReport)) {
-            throw new BirthReportNotFoundException();
+    public BirthDeathReportResident modifyDeath(int reportResidentNumber, int targetNumber, RestDeathDto death) {
+        BirthDeathReportResident deathReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumberAndPk_ReportResidentSerialNumber(death.getBirthDeathTypeCode(), targetNumber, reportResidentNumber);
+        if(Objects.isNull(deathReport)) {
+            throw new DeathReportNotFoundException();
         }
 
-        birthReport.setBirthDeathReportDate(birth.getBirthDeathReportDate());
-        birthReport.setBirthReportQualificationsCode(birth.getBirthReportQualificationsCode());
-        birthReport.setEmailAddress(birth.getEmailAddress());
-        birthReport.setPhoneNumber(birth.getPhoneNumber());
+        deathReport.setBirthDeathReportDate(death.getBirthDeathReportDate());
+        deathReport.setDeathReportQualificationsCode(death.getDeathReportQualificationsCode());
+        deathReport.setEmailAddress(death.getEmailAddress());
+        deathReport.setPhoneNumber(death.getPhoneNumber());
 
-        return birthDeathRepository.save(birthReport);
+        return birthDeathRepository.save(deathReport);
     }
 }
