@@ -3,7 +3,7 @@ POST localhost:8080/residents
 Content-Type: application/json
 
 {
-  "residentId":8,
+  "residentId":9,
   "name":"이응애",
   "residentRegistrationNumber":"980628-1232125",
   "genderCode":"남",
@@ -17,7 +17,7 @@ PUT localhost:8080/residents/9
 Content-Type: application/json
 
 {
-  "residentId":8,
+  "residentId":11,
   "name":"이현호",
   "residentRegistrationNumber":"880628-7654321",
   "genderCode":"남",

@@ -1,13 +1,16 @@
 package com.nhnacademy.springjpa.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "household_composition_resident")
 public class HouseholdCompositionResident {
 
     @EmbeddedId

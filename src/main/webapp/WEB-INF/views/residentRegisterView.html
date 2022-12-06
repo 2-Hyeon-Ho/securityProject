@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid #444444;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #444444;
+        }
+    </style>
+</head>
+<body>
+<h1>주민등록 등본</h1>
+<table>
+    <tr>
+        <th>세대주관계</th>
+        <th>성명</th>
+        <th>주민등록번호</th>
+        <th>신고일</th>
+        <th>변동사유</th>
+    </tr>
+    <tr th:each="residentRegister : ${residentRegisterList}">
+        <td th:text="${residentRegister.householdRelationshipCode}">세대주관계</td>
+        <td th:text="${residentRegister.name}">성명</td>
+        <td th:text="${residentRegister.residentRegistrationNumber}">주민등록번호</td>
+        <td th:text="${residentRegister.reportDate}">신고일</td>
+        <td th:text="${residentRegister.householdCompositionChangeReasonCode}">변동사유</td>
+    </tr>
+</table>
+<a href="/">처음으로</a><br />
+</body>
+</html>

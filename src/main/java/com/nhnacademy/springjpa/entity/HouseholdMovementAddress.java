@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -34,7 +35,7 @@ public class HouseholdMovementAddress {
     public static class Pk implements Serializable {
 
         @Column(name = "house_movement_report_date")
-        private LocalDateTime houseMovementReportDate;
+        private LocalDate houseMovementReportDate;
 
         @Column(name = "household_serial_number")
         private Integer householdSerialNumber;

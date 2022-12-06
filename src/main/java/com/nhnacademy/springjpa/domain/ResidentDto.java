@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-@ToString
 @EqualsAndHashCode
 public class ResidentDto {
     private String familyRelationshipCode;

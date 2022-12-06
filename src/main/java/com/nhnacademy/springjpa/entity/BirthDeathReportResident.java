@@ -32,7 +32,6 @@ public class BirthDeathReportResident {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @MapsId("reportResidentSerialNumber")
     @ManyToOne
     @JoinColumn(referencedColumnName = "resident_serial_number", name = "report_resident_serial_number")
     private Resident resident;
@@ -49,7 +48,7 @@ public class BirthDeathReportResident {
         @Column(name = "resident_serial_number")
         private Integer residentSerialNumber;
 
-        @Column(name = "report_resident_serial_number")
-        private Integer reportResidentSerialNumber;
+//        @Column(name = "report_resident_serial_number")
+//        private Integer reportResidentSerialNumber;
     }
 }

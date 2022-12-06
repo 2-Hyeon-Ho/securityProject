@@ -19,7 +19,7 @@ public class BirthModifyService {
     }
 
     public BirthDeathReportResident modifyBirth(int reportResidentNumber, int targetNumber, RestBirthDto birth) {
-        BirthDeathReportResident birthReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumberAndPk_ReportResidentSerialNumber(birth.getBirthDeathTypeCode(), targetNumber, reportResidentNumber);
+        BirthDeathReportResident birthReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumber(birth.getBirthDeathTypeCode(), targetNumber);
         if(Objects.isNull(birthReport)) {
             throw new BirthReportNotFoundException();
         }

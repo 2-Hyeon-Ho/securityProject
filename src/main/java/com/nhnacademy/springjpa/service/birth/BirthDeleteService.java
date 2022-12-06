@@ -18,7 +18,7 @@ public class BirthDeleteService {
     }
 
     public void deleteBirth(int reportResidentNumber, int targetNumber) {
-        BirthDeathReportResident birthReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumberAndPk_ReportResidentSerialNumber("출생", targetNumber, reportResidentNumber);
+        BirthDeathReportResident birthReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumber("출생", targetNumber);
         if(Objects.isNull(birthReport)) {
             throw new BirthReportNotFoundException();
         }

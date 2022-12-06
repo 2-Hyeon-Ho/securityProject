@@ -17,6 +17,15 @@
 </head>
 <body>
 <h1>가족관계증명서</h1>
+발급일 : <p th:text="${certificateIssue.certificateIssueDate}"></p><br />
+증명서 확인번호 : <p th:text="${certificateIssue.certificateId}"></p><br />
+등록기준지(본적) : <p th:text="${resident.registrationBaseAddress}"></p><br />
+본인 <span>
+  <a th:text="${resident.name}"></a>
+  <a th:text="${resident.birthDate}"></a>
+  <a th:text="${resident.residentRegistrationNumber}"></a>
+  <a th:text="${resident.genderCode}"></a>
+</span>
 <table>
   <tr>
     <th>구분</th>

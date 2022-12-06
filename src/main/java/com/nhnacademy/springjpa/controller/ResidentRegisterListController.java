@@ -1,8 +1,7 @@
-package com.nhnacademy.springjpa.controller.familyRelation;
+package com.nhnacademy.springjpa.controller;
 
-import com.nhnacademy.springjpa.domain.ResidentDto;
-import com.nhnacademy.springjpa.entity.Resident;
-import com.nhnacademy.springjpa.service.familyRelation.FamilyRelationInquiryService;
+import com.nhnacademy.springjpa.domain.HouseholdCompositionResidentDto;
+import com.nhnacademy.springjpa.service.ResidentRegisterListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,29 +14,28 @@ import java.util.List;
 import java.util.Objects;
 
 @Controller
-public class FamilyRelationController {
-    private final FamilyRelationInquiryService familyRelationInquiryService;
+public class ResidentRegisterListController {
+    private final ResidentRegisterListService residentRegisterListService;
 
-    public FamilyRelationController(FamilyRelationInquiryService familyRelationInquiryService) {
-        this.familyRelationInquiryService = familyRelationInquiryService;
+    public ResidentRegisterListController(ResidentRegisterListService residentRegisterListService) {
+        this.residentRegisterListService = residentRegisterListService;
     }
 
-    @GetMapping("/family/relation/list")
-    public String inquiryFamilyRelation(HttpServletRequest request, Model model) {
+    @GetMapping("/family/resident/list")
+    public String inquiryResidentRegister(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession(false);
 
         if(Objects.isNull(session)) {
-            return "inquiryFamilyRelationForm";
+            return "residentRegisterForm";
         }
         String name = (String) session.getAttribute("name");
         String personId = (String) session.getAttribute("personId");
-        List<ResidentDto> residents = familyRelationInquiryService.viewFamily(name, personId);
-        model.addAttribute("residents", residents);
-
-        return "familyRelationView";
+        List<HouseholdCompositionResidentDto> residentRegisterList = residentRegisterListService.viewResidentRegisterList(name, personId);
+        model.addAttribute("residentRegisterList", residentRegisterList);
+        return "residentRegisterView";
     }
 
-    @PostMapping("/family/relation/list")
+    @PostMapping("/family/resident/list")
     public String doInquiryFamilyRelation(@RequestParam("name") String name,
                                           @RequestParam("personId") String personId,
                                           HttpServletRequest request) {
@@ -46,6 +44,6 @@ public class FamilyRelationController {
         session.setAttribute("name", name);
         session.setAttribute("personId", personId);
 
-        return "redirect:/family/relation/list";
+        return "redirect:/family/resident/list";
     }
 }

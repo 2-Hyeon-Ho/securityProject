@@ -23,7 +23,7 @@ public class DeathRegistrationService {
     }
 
     public BirthDeathReportResident registerDeath(int reportResidentNumber, RestDeathDto death) {
-        BirthDeathReportResident deathReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumberAndPk_ReportResidentSerialNumber(death.getBirthDeathTypeCode(), death.getResidentSerialNumber(), reportResidentNumber);
+        BirthDeathReportResident deathReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumber(death.getBirthDeathTypeCode(), death.getResidentSerialNumber());
         if(!Objects.isNull(deathReport)) {
             throw new DeathReportExistException();
         }
@@ -31,7 +31,7 @@ public class DeathRegistrationService {
         Resident resident = residentRepository.findResidentByResidentId(reportResidentNumber);
 
         BirthDeathReportResident newDeathReport = new BirthDeathReportResident();
-        newDeathReport.setPk(new BirthDeathReportResident.Pk(death.getBirthDeathTypeCode(), death.getResidentSerialNumber(), reportResidentNumber));
+        newDeathReport.setPk(new BirthDeathReportResident.Pk(death.getBirthDeathTypeCode(), death.getResidentSerialNumber()));
         newDeathReport.setBirthDeathReportDate(death.getBirthDeathReportDate());
         newDeathReport.setDeathReportQualificationsCode(death.getDeathReportQualificationsCode());
         newDeathReport.setEmailAddress(death.getEmailAddress());

@@ -19,7 +19,7 @@ public class DeathModifyService {
     }
 
     public BirthDeathReportResident modifyDeath(int reportResidentNumber, int targetNumber, RestDeathDto death) {
-        BirthDeathReportResident deathReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumberAndPk_ReportResidentSerialNumber(death.getBirthDeathTypeCode(), targetNumber, reportResidentNumber);
+        BirthDeathReportResident deathReport = birthDeathRepository.findByPk_BirthDeathTypeCodeAndPk_ResidentSerialNumber(death.getBirthDeathTypeCode(), targetNumber);
         if(Objects.isNull(deathReport)) {
             throw new DeathReportNotFoundException();
         }

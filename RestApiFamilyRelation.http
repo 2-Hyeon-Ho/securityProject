@@ -3,7 +3,7 @@ POST localhost:8080/residents/4/relationship
 Content-Type: application/json
 
 {
-  "familyResidentRegistrationNumber":8,
+  "familyResidentRegistrationNumber":11,
   "familyRelationshipCode":"자녀"
 }
 
