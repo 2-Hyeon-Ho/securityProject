@@ -34,7 +34,7 @@ public class BirthRegistrationService {
         newBirthReport.setPk(new BirthDeathReportResident.Pk(birth.getBirthDeathTypeCode(), birth.getResidentSerialNumber()));
         newBirthReport.setBirthDeathReportDate(birth.getBirthDeathReportDate());
         newBirthReport.setBirthReportQualificationsCode(birth.getBirthReportQualificationsCode());
-        newBirthReport.setEmailAddress(birth.getEmailAddress());
+//        newBirthReport.setEmailAddress(birth.getEmailAddress());
         newBirthReport.setPhoneNumber(birth.getPhoneNumber());
         newBirthReport.setResident(resident);
 

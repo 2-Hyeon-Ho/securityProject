@@ -38,6 +38,7 @@ public class HouseholdCompositionResident {
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
+    @Getter
     @Embeddable
     public static class Pk implements Serializable {
 

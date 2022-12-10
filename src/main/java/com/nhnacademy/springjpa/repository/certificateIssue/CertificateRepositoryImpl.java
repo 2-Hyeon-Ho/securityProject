@@ -24,7 +24,7 @@ public class CertificateRepositoryImpl extends QuerydslRepositorySupport impleme
         QHousehold household = QHousehold.household;
 
         return from(compositionResident)
-                .join(compositionResident.resident, resident)
+                .innerJoin(compositionResident.resident, resident)
                 .on(compositionResident.pk.residentSerialNumber.eq(resident.residentId))
                 .join(compositionResident.houseHold, household)
                 .on(compositionResident.pk.householdSerialNumber.eq(household.householdSerialNumber))

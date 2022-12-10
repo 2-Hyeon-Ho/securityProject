@@ -17,6 +17,11 @@
 </head>
 <body>
 <h1>주민등록 등본</h1>
+발급일 : <p th:text="${certificateIssue.certificateIssueDate}"></p><br />
+증명서 확인번호 : <p th:text="${certificateIssue.certificateId}"></p><br />
+세대주 성명 : <p th:text="${household.resident.name}"></p><br />
+세대구성 사유 : <p th:text="${household.householdCompositionReasonCode}"></p><br />
+세대구성 일자 : <p th:text="${household.householdCompositionDate}"></p><br />
 <table>
     <tr>
         <th>세대주관계</th>

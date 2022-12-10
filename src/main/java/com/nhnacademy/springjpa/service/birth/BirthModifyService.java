@@ -26,7 +26,7 @@ public class BirthModifyService {
 
         birthReport.setBirthDeathReportDate(birth.getBirthDeathReportDate());
         birthReport.setBirthReportQualificationsCode(birth.getBirthReportQualificationsCode());
-        birthReport.setEmailAddress(birth.getEmailAddress());
+//        birthReport.setEmailAddress(birth.getEmailAddress());
         birthReport.setPhoneNumber(birth.getPhoneNumber());
 
         return birthDeathRepository.save(birthReport);

@@ -26,8 +26,8 @@ public class BirthDeathReportResident {
     @Column(name = "death_report_qualifications_code")
     private String deathReportQualificationsCode;
 
-    @Column(name = "email_address")
-    private String emailAddress;
+//    @Column(name = "email_address")
+//    private String emailAddress;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -47,8 +47,5 @@ public class BirthDeathReportResident {
 
         @Column(name = "resident_serial_number")
         private Integer residentSerialNumber;
-
-//        @Column(name = "report_resident_serial_number")
-//        private Integer reportResidentSerialNumber;
     }
 }

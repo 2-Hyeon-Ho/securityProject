@@ -4,24 +4,38 @@ Content-Type: application/json
 
 {
   "residentId":9,
-  "name":"이응애",
-  "residentRegistrationNumber":"980628-1232125",
+  "name":"이현호",
+  "residentRegistrationNumber":"880628-1232125",
   "genderCode":"남",
   "birthDate":"1998-06-28T12:00:00",
   "birthPlaceCode":"병원",
-  "registrationBaseAddress":"전라남도 여수시"
+  "registrationBaseAddress":"전라남도 여수시",
+  "id": "resident9",
+  "password": "resident9",
+  "email": "resident9@naver.com"
 }
 
 ###주민 수정
-PUT localhost:8080/residents/9
+PUT localhost:8080/residents/8
 Content-Type: application/json
 
 {
-  "residentId":11,
+  "residentId":8,
   "name":"이현호",
   "residentRegistrationNumber":"880628-7654321",
   "genderCode":"남",
   "birthDate":"1988-06-28T17:00:00",
   "birthPlaceCode":"자택",
-  "registrationBaseAddress":"서울특별시"
+  "registrationBaseAddress":"서울특별시",
+  "id": "resident0",
+  "password": "resident0",
+  "email": "resident8@github.com"
+}
+
+###비밀번호 수정
+PUT localhost:8080/residents/7/password
+Content-Type: application/json
+
+{
+  "password": "resident7"
 }

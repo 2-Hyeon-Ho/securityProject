@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <h1>정부23</h1>
-<a href="/family/relation/list">가족관계 증명서</a><br />
-<a href="/family/resident/list">주민등록등본</a><br />
+<th:block th:include="fragments/heading" />
+<ul>
+    <li sec:authorize="isAuthenticated()">
+        <a href="/family/relation/list">가족관계 증명서</a><br />
+    </li>
+    <li sec:authorize="isAuthenticated()">
+        <a href="/family/resident/list">주민등록등본</a><br />
+    </li>
+</ul>
+
+
 </body>
 </html>

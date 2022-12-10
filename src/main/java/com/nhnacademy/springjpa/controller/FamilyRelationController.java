@@ -4,11 +4,12 @@ import com.nhnacademy.springjpa.domain.ResidentDto;
 import com.nhnacademy.springjpa.entity.CertificateIssue;
 import com.nhnacademy.springjpa.entity.Resident;
 import com.nhnacademy.springjpa.service.familyRelation.FamilyRelationInquiryService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,34 +24,23 @@ public class FamilyRelationController {
         this.familyRelationInquiryService = familyRelationInquiryService;
     }
 
+    //가족관계증명서
     @GetMapping("/family/relation/list")
     public String inquiryFamilyRelation(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession(false);
 
         if(Objects.isNull(session)) {
-            return "inquiryFamilyRelationForm";
+            return "login";
         }
-        String name = (String) session.getAttribute("name");
-        String personId = (String) session.getAttribute("personId");
-        List<ResidentDto> residents = familyRelationInquiryService.viewFamily(name, personId);
-        CertificateIssue certificateIssue = familyRelationInquiryService.viewCertificateIssue(name, personId);
-        Resident resident = familyRelationInquiryService.getResident(name, personId);
-        model.addAttribute("residents", residents);
+        String id = (String) session.getAttribute("id");
+
+        CertificateIssue certificateIssue = familyRelationInquiryService.viewCertificateIssue(id);
+        Resident resident = familyRelationInquiryService.getResident(id);
+        List<ResidentDto> residents = familyRelationInquiryService.viewFamily(id);
         model.addAttribute("certificateIssue", certificateIssue);
         model.addAttribute("resident", resident);
+        model.addAttribute("residents", residents);
 
         return "familyRelationView";
-    }
-
-    @PostMapping("/family/relation/list")
-    public String doInquiryFamilyRelation(@RequestParam("name") String name,
-                                          @RequestParam("personId") String personId,
-                                          HttpServletRequest request) {
-        HttpSession session = request.getSession(true);
-
-        session.setAttribute("name", name);
-        session.setAttribute("personId", personId);
-
-        return "redirect:/family/relation/list";
     }
 }

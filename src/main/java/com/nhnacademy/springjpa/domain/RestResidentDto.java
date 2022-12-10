@@ -29,4 +29,12 @@ public class RestResidentDto {
 
     @NotBlank
     private String registrationBaseAddress;
+
+    @NotBlank
+    private String id;
+
+    @NotBlank
+    private String password;
+
+    private String email;
 }

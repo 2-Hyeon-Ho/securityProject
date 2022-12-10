@@ -23,16 +23,16 @@ public class FamilyRelationInquiryService {
         this.certificateIssueRepository = certificateIssueRepository;
     }
 
-    public List<ResidentDto> viewFamily(String name, String registrationNumber) {
-        if(Objects.isNull(residentRepository.findResidentByNameAndAndResidentRegistrationNumber(name, registrationNumber))) {
+    public List<ResidentDto> viewFamily(String id) {
+        if(Objects.isNull(residentRepository.findResidentById(id))) {
             throw new ResidentNotFoundException();
         }
 
-        return residentRepository.getFamilyRelationshipCertificate(name, registrationNumber);
+        return residentRepository.getFamilyRelationshipCertificate(id);
     }
 
-    public CertificateIssue viewCertificateIssue(String name, String registrationNumber) {
-        Resident resident = residentRepository.findResidentByNameAndAndResidentRegistrationNumber(name, registrationNumber);
+    public CertificateIssue viewCertificateIssue(String id) {
+        Resident resident = residentRepository.findResidentById(id);
         if(Objects.isNull(resident)) {
             throw new ResidentNotFoundException();
         }
@@ -40,8 +40,8 @@ public class FamilyRelationInquiryService {
         return certificateIssueRepository.findByResidentAndAndCertificateCode(resident, "가족관계증명서");
     }
 
-    public Resident getResident(String name, String registrationNumber) {
-        Resident resident = residentRepository.findResidentByNameAndAndResidentRegistrationNumber(name, registrationNumber);
+    public Resident getResident(String id) {
+        Resident resident = residentRepository.findResidentById(id);
         if(Objects.isNull(resident)) {
             throw new ResidentNotFoundException();
         }

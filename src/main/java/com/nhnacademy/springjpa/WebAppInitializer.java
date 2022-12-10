@@ -1,5 +1,6 @@
-package com.nhnacademy.springjpa.config;
+package com.nhnacademy.springjpa;
 
+import com.nhnacademy.springjpa.config.WebConfig;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

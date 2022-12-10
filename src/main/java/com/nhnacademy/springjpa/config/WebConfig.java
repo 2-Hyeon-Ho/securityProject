@@ -17,6 +17,7 @@ import org.springframework.validation.beanvalidation.MethodValidationPostProcess
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -48,6 +49,15 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
         registry.viewResolver(thymeleafViewResolver());
     }
 
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("home");
+        registry.addRedirectViewController("/redirect-index", "/");
+        registry.addViewController("/auth/login").setViewName("login");
+        registry.addViewController("/auth/logout").setViewName("logout");
+        registry.addViewController("/error/403").setViewName("error403");
+    }
+
     @Bean
     public ViewResolver thymeleafViewResolver(){
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
@@ -66,6 +76,8 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.setTemplateEngineMessageSource(messageSource);
+        templateEngine.addDialect(new SpringSecurityDialect());
+
         return templateEngine;
     }
 
@@ -78,13 +90,6 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
     }
-
-//    @Bean
-//    RequestMappingHandlerAdapter requestMappingHandlerAdapter(){
-//        RequestMappingHandlerAdapter requestMappingHandlerAdapter = new RequestMappingHandlerAdapter();
-//        requestMappingHandlerAdapter.setIgnoreDefaultModelOnRedirect(true);
-//        return requestMappingHandlerAdapter;
-//    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

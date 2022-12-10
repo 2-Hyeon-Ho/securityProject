@@ -1,12 +1,12 @@
 package com.nhnacademy.springjpa.controller;
 
 import com.nhnacademy.springjpa.domain.HouseholdCompositionResidentDto;
-import com.nhnacademy.springjpa.service.ResidentRegisterListService;
+import com.nhnacademy.springjpa.entity.CertificateIssue;
+import com.nhnacademy.springjpa.entity.Household;
+import com.nhnacademy.springjpa.service.household.HouseholdInquiryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,35 +15,29 @@ import java.util.Objects;
 
 @Controller
 public class ResidentRegisterListController {
-    private final ResidentRegisterListService residentRegisterListService;
+    private final HouseholdInquiryService householdInquiryService;
 
-    public ResidentRegisterListController(ResidentRegisterListService residentRegisterListService) {
-        this.residentRegisterListService = residentRegisterListService;
-    }
-
+    //주민등록등본
     @GetMapping("/family/resident/list")
     public String inquiryResidentRegister(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession(false);
 
         if(Objects.isNull(session)) {
-            return "residentRegisterForm";
+            return "login";
         }
-        String name = (String) session.getAttribute("name");
-        String personId = (String) session.getAttribute("personId");
-        List<HouseholdCompositionResidentDto> residentRegisterList = residentRegisterListService.viewResidentRegisterList(name, personId);
+
+        String id = (String) session.getAttribute("id");
+
+        List<HouseholdCompositionResidentDto> residentRegisterList = householdInquiryService.viewResidentRegisterList(id);
+        CertificateIssue certificateIssue = householdInquiryService.viewCertificateIssue(id);
+        Household household = householdInquiryService.getHouseholdResident(id);
         model.addAttribute("residentRegisterList", residentRegisterList);
+        model.addAttribute("certificateIssue", certificateIssue);
+        model.addAttribute("household", household);
         return "residentRegisterView";
     }
 
-    @PostMapping("/family/resident/list")
-    public String doInquiryFamilyRelation(@RequestParam("name") String name,
-                                          @RequestParam("personId") String personId,
-                                          HttpServletRequest request) {
-        HttpSession session = request.getSession(true);
-
-        session.setAttribute("name", name);
-        session.setAttribute("personId", personId);
-
-        return "redirect:/family/resident/list";
+    public ResidentRegisterListController(HouseholdInquiryService householdInquiryService) {
+        this.householdInquiryService = householdInquiryService;
     }
 }

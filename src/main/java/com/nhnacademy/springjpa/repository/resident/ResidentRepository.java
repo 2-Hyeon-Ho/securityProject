@@ -7,17 +7,22 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ResidentRepository extends JpaRepository<Resident, Integer>, ResidentRepositoryCustom {
     Resident findResidentByResidentId(int residentId);
 
-    Resident findResidentByNameAndAndResidentRegistrationNumber(String name, String residentId);
+    Resident findResidentById(String id);
+
+    Optional<Resident> findById(String id);
+
+    Resident findByEmail(String email);
 
     @Query("select new com.nhnacademy.springjpa.domain.ResidentDto(fr.familyRelationshipCode, r.name, r.birthDate, " +
             "r.residentRegistrationNumber, r.genderCode) from Resident as r " +
             "inner join FamilyRelationship as fr " +
             "on r.residentId = fr.pk.familyResidentRegistrationNumber " +
             "where fr.pk.baseResidentSerialNumber = " +
-            "(select r.residentId from Resident as r where r.name = ?1 and r.residentRegistrationNumber = ?2)")
-    List<ResidentDto> getFamilyRelationshipCertificate(@Param("name") String name, @Param("personId") String registrationNumber);
+            "(select r.residentId from Resident as r where r.id = ?1)")
+    List<ResidentDto> getFamilyRelationshipCertificate(String id);
 }

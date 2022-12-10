@@ -50,4 +50,13 @@ public class Resident {
 
     @OneToMany(mappedBy = "resident")
     private List<FamilyRelationship> familyRelationship;
+
+    @Column(name = "id")
+    private String id;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "email_address")
+    private String email;
 }

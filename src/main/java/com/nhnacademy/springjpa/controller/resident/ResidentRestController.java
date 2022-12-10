@@ -1,10 +1,12 @@
 package com.nhnacademy.springjpa.controller.resident;
 
+import com.nhnacademy.springjpa.domain.ResidentPasswordDto;
 import com.nhnacademy.springjpa.domain.RestResidentDto;
 import com.nhnacademy.springjpa.entity.Resident;
 import com.nhnacademy.springjpa.exception.ValidationFailedException;
 import com.nhnacademy.springjpa.service.resident.ResidentModifyService;
 import com.nhnacademy.springjpa.service.resident.ResidentRegistrationService;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,5 +42,17 @@ public class ResidentRestController {
         }
 
         return residentModifyService.residentModify(residentId, resident);
+    }
+
+    @PutMapping("/{residentId}/password")
+    @ResponseStatus(HttpStatus.OK)
+    public void modifyPassword(@PathVariable("residentId") Integer residentId,
+                                   @Valid @RequestBody ResidentPasswordDto resident,
+                                   BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            throw new ValidationFailedException(bindingResult);
+        }
+
+        residentModifyService.passwordModify(residentId, resident);
     }
 }
