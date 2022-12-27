@@ -28,7 +28,8 @@ public class FamilyRelationInquiryService {
             throw new ResidentNotFoundException();
         }
 
-        return residentRepository.getFamilyRelationshipCertificate(id);
+        return residentRepository.getFamilyRelation(id);
+//        return residentRepository.getFamilyRelationshipCertificate(id);
     }
 
     public CertificateIssue viewCertificateIssue(String id) {

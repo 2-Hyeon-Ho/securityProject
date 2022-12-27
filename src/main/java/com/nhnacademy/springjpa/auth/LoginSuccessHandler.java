@@ -13,17 +13,12 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-    private final RedisTemplate<String, Object> redisTemplate;
-
-    public LoginSuccessHandler(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication)
             throws ServletException, IOException {
-        String sessionId = UUID.randomUUID().toString();
+//        String sessionId = UUID.randomUUID().toString();
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
@@ -32,7 +27,7 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         HttpSession session = request.getSession();
         session.setAttribute("id", id);
 
-        redisTemplate.opsForHash().put(sessionId, "id", id);
+//        redisTemplate.opsForHash().put(sessionId, "id", id);
 
         super.onAuthenticationSuccess(request, response, authentication);
     }

@@ -31,7 +31,7 @@ public class SecurityConfig {
                     .passwordParameter("pwd")
                     .loginPage("/auth/login")
                     .loginProcessingUrl("/login")
-                    .successHandler(loginSuccessHandler(null))
+                    .successHandler(loginSuccessHandler())
                     .and()
                 .logout()
                     .deleteCookies("SESSEION")
@@ -41,15 +41,15 @@ public class SecurityConfig {
                 .csrf()
 //                    .disable()
                     .and()
-                .sessionManagement()
-                    .sessionFixation()  //로그인을 하면 세션이 바뀌는데 이때 로그인 할때마다 세션의 아이디를 바꾸는 설정
-                        .none()
-                    .and()
-                .headers()
-                    .defaultsDisabled()
-                    .frameOptions() //같은 도메인이면 프레임받는걸 허용
-                    .sameOrigin()
-                    .and()
+                    .sessionManagement()
+                        .sessionFixation()  //로그인을 하면 세션이 바뀌는데 이때 로그인 할때마다 세션의 아이디를 바꾸는 설정
+                            .none()
+                        .and()
+                    .headers()
+                        .defaultsDisabled()
+                        .frameOptions() //같은 도메인이면 프레임받는걸 허용
+                        .sameOrigin()
+                        .and()
                 .exceptionHandling()
                     .accessDeniedPage("/error/403") //접근이 제한된 페이지 보여주기
                     .and()
@@ -71,8 +71,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationSuccessHandler loginSuccessHandler(RedisTemplate<String, Object> redisTemplate) {
-        return new LoginSuccessHandler(redisTemplate);
+    public AuthenticationSuccessHandler loginSuccessHandler() {
+        return new LoginSuccessHandler();
     }
 
     @Bean

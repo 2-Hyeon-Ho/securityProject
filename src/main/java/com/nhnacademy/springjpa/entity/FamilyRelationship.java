@@ -20,8 +20,14 @@ public class FamilyRelationship {
 
     @MapsId("baseResidentSerialNumber")
     @ManyToOne
-    @JoinColumn(referencedColumnName = "resident_serial_number", name = "base_resident_serial_number")
+    @JoinColumn(
+            referencedColumnName = "resident_serial_number",
+            name = "base_resident_serial_number")
     private Resident resident;
+
+//    @ManyToOne
+//    @JoinColumn(referencedColumnName = )
+//    private Resident resident;
 
     @AllArgsConstructor
     @NoArgsConstructor

@@ -23,9 +23,9 @@ public class CustomLogoutSuccessHandler implements LogoutSuccessHandler {
 
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        String sessionId = CookieUtils.getCookie(request, "SESSION");
-        if (Objects.nonNull(sessionId)) {
-            redisTemplate.delete(sessionId);
+        String session = CookieUtils.getCookie(request, "SESSION");
+        if (Objects.nonNull(session)) {
+            redisTemplate.delete(session);
         }
 
         redirectStrategy.sendRedirect(request, response, "/auth/login");

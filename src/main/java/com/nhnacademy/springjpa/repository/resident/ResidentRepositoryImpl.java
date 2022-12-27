@@ -5,14 +5,10 @@ import com.nhnacademy.springjpa.entity.QFamilyRelationship;
 import com.nhnacademy.springjpa.entity.QResident;
 import com.nhnacademy.springjpa.entity.Resident;
 import com.querydsl.core.types.Projections;
-import com.querydsl.core.types.SubQueryExpression;
-import com.querydsl.jpa.JPQLQuery;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-import static com.querydsl.jpa.JPAExpressions.select;
 
 
 @Repository
@@ -20,24 +16,29 @@ public class ResidentRepositoryImpl extends QuerydslRepositorySupport implements
     public ResidentRepositoryImpl() {
         super(Resident.class);
     }
+
     @Override
     public List<ResidentDto> getFamilyRelation(String id) {
         QResident resident = QResident.resident;
+        QResident subResident = new QResident("sub");
         QFamilyRelationship familyRelationship = QFamilyRelationship.familyRelationship;
         /*
-        select fr.family_relationship_code as '구분', r.name as '성명', r.birth_date as '출생연월일', r.resident_registration_number as '주민등록번호', r.gender_code as '성별'
-from resident as r
-	inner join family_relationship as fr on r.resident_serial_number=fr.family_resident_serial_number
-where fr.family_resident_serial_number =
-		any(select fr.family_resident_serial_number From family_relationship as fr
-        where fr.base_resident_serial_number = 4)
-        and fr.base_resident_serial_number = 4;
+            select  fr.family_relationship_code as '구분',
+			r.name as '성명',
+			r.birth_date as '출생연월일',
+            r.resident_registration_number as '주민등록번호',
+            r.gender_code as '성별'
+	from family_relationship as fr
+	inner join resident as r
+		on fr.family_resident_serial_number = r.resident_serial_number
+	left join resident as rr
+		on fr.base_resident_serial_number = rr.resident_serial_number
+    where rr.resident_serial_number =4
          */
-
-        JPQLQuery<ResidentDto> querydsl = from(resident)
-                .innerJoin(resident.familyRelationship, familyRelationship)
-                .where(familyRelationship.pk.familyResidentRegistrationNumber.eqAny(getFamilyResidentSerialNumber(id))
-                        .and(familyRelationship.pk.baseResidentSerialNumber.eq(getResidentId(id))))
+        return from(familyRelationship)
+                .innerJoin(familyRelationship.resident, resident)
+                .innerJoin(familyRelationship.resident, subResident)
+                .where(subResident.residentId.eq(getResidentId(id)))
                 .select(Projections.constructor(
                         ResidentDto.class,
                         familyRelationship.familyRelationshipCode,
@@ -45,19 +46,17 @@ where fr.family_resident_serial_number =
                         resident.birthDate,
                         resident.residentRegistrationNumber,
                         resident.genderCode
-                ));
-
-        return querydsl.fetch();
+                )).fetch();
     }
 
-    public SubQueryExpression<? extends Integer> getFamilyResidentSerialNumber(String id) {
-        QFamilyRelationship familyRelationship = QFamilyRelationship.familyRelationship;
-
-        JPQLQuery<Integer> querydsl = from(familyRelationship)
-                .where(familyRelationship.pk.baseResidentSerialNumber.eq(getResidentId(id)))
-                .select(familyRelationship.pk.familyResidentRegistrationNumber);
-        return querydsl;
-    }
+//    public List<Integer> getFamilyResidentSerialNumber(String id) {
+//        QFamilyRelationship familyRelationship = QFamilyRelationship.familyRelationship;
+//
+//        return from(familyRelationship)
+//                .where(familyRelationship.pk.baseResidentSerialNumber.eq(getResidentId(id)))
+//                .select(familyRelationship.pk.familyResidentRegistrationNumber)
+//                .fetch();
+//    }
 
     public Integer getResidentId(String id) {
         QResident resident = QResident.resident;

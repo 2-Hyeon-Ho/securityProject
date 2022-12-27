@@ -83,9 +83,9 @@ public class githubController {
 
         Resident resident = customResidentDetailService.findByEmail(email);
         session.setAttribute("id", resident.getId());
-        User user = new User(resident.getId(), resident.getPassword(), Collections.singletonList(new SimpleGrantedAuthority("resident")));
+        UserDetails userDetails = customResidentDetailService.loadUserByUsername(resident.getId());
 
-        Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
         SecurityContext context = SecurityContextHolder.getContext();
         context.setAuthentication(authentication);
         return "home";

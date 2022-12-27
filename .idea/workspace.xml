@@ -10,60 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8982e820-2be9-4310-838d-63f4b8bfa7ad" name="Changes" comment="oauth2 인증 구현 버전">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/SecurityInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/SessionInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/auth/CustomLogoutSuccessHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/auth/LoginSuccessHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/githubController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/domain/ResidentPasswordDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/HouseholdCompositionResident/HouseholdCompositionResidentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/resident/CustomResidentDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error403.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/heading.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RestTemplateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/springjpa/repository/resident/ResidentRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RestApiResident.http" beforeDir="false" afterPath="$PROJECT_DIR$/RestApiResident.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/CookieUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/CookieUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/auth/CustomLogoutSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/auth/CustomLogoutSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/auth/LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/auth/LoginSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/RootConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/WebAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/WebAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/FamilyRelationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/FamilyRelationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/ResidentRegisterListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/ResidentRegisterListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/resident/ResidentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/resident/ResidentRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/domain/RestResidentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/domain/RestResidentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/BirthDeathReportResident.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/BirthDeathReportResident.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/HouseholdCompositionResident.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/HouseholdCompositionResident.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/Resident.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/Resident.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/certificateIssue/CertificateIssueRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/certificateIssue/CertificateIssueRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/certificateIssue/CertificateRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/certificateIssue/CertificateRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/household/HouseholdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/household/HouseholdRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/householdMovementAddress/HouseholdMovementAddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/householdMovementAddress/HouseholdMovementAddressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/resident/ResidentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/resident/ResidentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/resident/ResidentRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/resident/ResidentRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/githubController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/controller/githubController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/FamilyRelationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/entity/FamilyRelationship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/resident/ResidentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/repository/resident/ResidentRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/ResidentRegisterListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/household/HouseholdInquiryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/birth/BirthModifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/birth/BirthModifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/birth/BirthRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/birth/BirthRegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/death/DeathModifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/death/DeathModifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/death/DeathRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/death/DeathRegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/familyRelation/FamilyRelationInquiryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/familyRelation/FamilyRelationInquiryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/resident/ResidentModifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/resident/ResidentModifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/resident/ResidentRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/resident/ResidentRegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/familyRelationView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/familyRelationView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/inquiryFamilyRelationForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/residentRegisterForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/residentRegisterView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/residentRegisterView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +36,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="HTML File" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -87,6 +47,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -104,23 +67,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/2hyeonho/Documents/SPRING/인증,인가/jpaProject/src/main/resources&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;e646e03559268002824437684df80dc5&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "/Users/ihyeonho/Documents/SPRING/Security/jpaProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "e646e03559268002824437684df80dc5",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -129,8 +99,14 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/com/nhnacademy/springjpa/service/death" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.nhnacademy.springjpa" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.nhnacademy.springjpa.repository.resident" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -138,7 +114,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.62">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9">
     <configuration name="RestApiResident | 주민 수정" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/RestApiResident.http" index="2" requestIdentifier="주민 수정" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -191,7 +167,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 9.0.62" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.62" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.62" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="jpaProject:war exploded">
@@ -285,7 +261,7 @@
       <item itemvalue="JUnit.RestTemplateTest.getAllPostForObject" />
       <item itemvalue="JUnit.RestTemplateTest.getForEntity" />
       <item itemvalue="JUnit.RestTemplateTest.getPostForObject" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.62" />
+      <item itemvalue="Tomcat Server.Tomcat 9" />
     </list>
     <recent_temporary>
       <list>
@@ -328,7 +304,23 @@
       <workItem from="1670511262872" duration="1106000" />
       <workItem from="1670545627136" duration="37031000" />
       <workItem from="1670594446272" duration="6709000" />
-      <workItem from="1670639050679" duration="1318000" />
+      <workItem from="1670639050679" duration="1593000" />
+      <workItem from="1670641012598" duration="722000" />
+      <workItem from="1670653206155" duration="13945000" />
+      <workItem from="1670678542273" duration="6457000" />
+      <workItem from="1670725400175" duration="1998000" />
+      <workItem from="1670747245422" duration="5245000" />
+      <workItem from="1670759424014" duration="3581000" />
+      <workItem from="1670803347193" duration="752000" />
+      <workItem from="1670837580741" duration="727000" />
+      <workItem from="1670918438106" duration="5639000" />
+      <workItem from="1670928774205" duration="758000" />
+      <workItem from="1670931403498" duration="3562000" />
+      <workItem from="1670939294720" duration="5876000" />
+      <workItem from="1671010818267" duration="5120000" />
+      <workItem from="1671061406565" duration="7596000" />
+      <workItem from="1671613160753" duration="22000" />
+      <workItem from="1672038850721" duration="1938000" />
     </task>
     <task id="LOCAL-00001" summary="출생사망신고 주민 고치기 전">
       <created>1670149161788</created>
@@ -344,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670299438408</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="oauth2 인증 구현 버전">
+      <created>1670640403302</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670640403302</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
